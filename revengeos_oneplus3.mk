@@ -21,12 +21,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+#$(call inherit-product, vendor/revengeos/config/common_full_phone.mk)
+
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_GAPPS_ARCH := arm64
+$(call inherit-product, vendor/revengeos/config/common.mk)
+$(call inherit-product, vendor/revengeos/config/gsm.mk)
+IS_PHONE := true
+REVENGEOS_BUILDTYPE := UNOFFICIAL
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2018-11-01
 
-PRODUCT_NAME := lineage_oneplus3
+PRODUCT_NAME := revengeos_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
